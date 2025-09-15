@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cards with Image Buttons</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      height: 100vh;
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      padding: 20px;
+      text-align: center;
+      width: 220px;
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Card 1 (Change Image) -->
+  <div class="card">
+    <img id="img1" src="image1.png" alt="Card Image 1">
+    <button onclick="changeImage()">Change</button>
+  </div>
+
+  <!-- Card 2 (Hide/Show Image) -->
+  <div class="card">
+    <img id="img2" src="image3.png" alt="Card Image 2">
+    <button onclick="toggleImage()">Hide</button>
+  </div>
+
+  <script>
+    // For Card 1: Change Image
+    let changed = false;
+    function changeImage() {
+      const img1 = document.getElementById("img1");
+      if (!changed) {
+        img1.src = "image1.png";
+        changed = true;
+      } else {
+        img1.src = "image3.png";
+        changed = false;
+      }
+    }
+
+    // For Card 2: Hide/Show Image
+    function toggleImage() {
+      const img2 = document.getElementById("img2");
+      const btn = event.target;
+      if (img2.style.display === "none") {
+        img2.style.display = "block";
+        btn.textContent = "Hide";
+      } else {
+        img2.style.display = "none";
+        btn.textContent = "Show";
+      }
+    }
+  </script>
+
+</body>
+</html>
