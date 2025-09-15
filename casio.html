@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casio - Sa Re Ga</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ece9e6, #ffffff);
+      font-family: Arial, sans-serif;
+    }
+    .casio {
+      display: flex;
+      gap: 20px;
+      background: #222;
+      padding: 20px 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    button {
+      width: 80px;
+      height: 150px;
+      border: none;
+      border-radius: 10px;
+      background: white;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      transition: 0.2s;
+    }
+    button:active {
+      transform: scale(0.95);
+      background: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="casio">
+    <button onclick="playSound(261.63)">Sa</button>
+    <button onclick="playSound(293.66)">Re</button>
+    <button onclick="playSound(329.63)">Ga</button>
+  </div>
+
+  <script>
+    function playSound(freq) {
+      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioCtx.createOscillator();
+      oscillator.type = "sine"; // smooth sound
+      oscillator.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      oscillator.connect(audioCtx.destination);
+      oscillator.start();
+      oscillator.stop(audioCtx.currentTime + 0.5); // plays for 0.5 sec
+    }
+  </script>
+
+</body>
+</html>
