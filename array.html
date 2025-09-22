@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="adi"></p>
+    <script>
+        // const car = ["Maruti", "BMW", "Audi", "Mercedes"];
+        // document.getElementById("adi").innerHTML = car;
+        
+        // const car = new Array("Maruti", "BMW", "Audi", "Mercedes");
+        // car[2] = "Jaguar";
+        // document.getElementById("adi").innerHTML = car[1];
+
+        const person={
+            firstName: "mohan",
+            lastName: "sharma",
+            age: 25,
+        };
+        document.getElementById("adi").innerHTML = person.firstName;
+
+        const student1={
+            name : "mohan",
+            rollno : 20,
+            class : "BCA",
+        };
+
+        const student2={
+            name : "rohan",
+            rollno : 28,
+            class : "BCA",
+        }
+
+        const student3={
+            name : "sohan",
+            rollno : 24,
+            class : "BCA",
+        }
+
+        const student4={
+            name : "john",
+            rollno : 30,
+            class : "BCA",
+        }
+        const students = [student1, student2, student3, student4];
+        document.getElementById("adi").innerHTML = students[2].name;
+        document.getElementById("adi").innerHTML += "<br>" + students[0].rollno;
+        document.getElementById("adi").innerHTML += "<br>" + students[1].class;
+        document.getElementById("adi").innerHTML += "<br>" + students[3].name;
+        document.getElementById("adi").innerHTML += "<br>" + students[3].rollno;
+        document.getElementById("adi").innerHTML += "<br>" + students[2].class;
+        document.getElementById("adi").innerHTML += "<br>" + students[1].name;
+
+    </script>
+</body>
+</html>
